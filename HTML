@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Skill Enhancement AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo">SoftSkillAI</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Enhance Your Soft Skills with AI</h1>
+        <p>Get instant, AI-generated feedback to improve your communication, teamwork, and other soft skills.</p>
+
+        <form method="POST" id="skillForm">
+            <label for="user_input">Describe your soft skill scenario:</label><br>
+            <textarea id="user_input" name="user_input" rows="5" cols="50" placeholder="E.g., I need to improve my public speaking skills..."></textarea><br><br>
+            <input type="submit" value="Get Feedback">
+        </form>
+
+        <!-- Loading spinner -->
+        <div id="loading" class="spinner" style="display:none;"></div>
+
+        {% if feedback %}
+        <div class="feedback-card">
+            <h2>AI Feedback:</h2>
+            <p>{{ feedback }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SoftSkillAI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('skillForm').onsubmit = function() {
+            document.getElementById('loading').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
